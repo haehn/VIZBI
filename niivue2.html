@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>NiiVue!</title>
+    <style>
+      body { 
+        background-color:#000;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden !important;  
+      }
+    </style>
+
+    <script type="module" async>
+
+      import * as niivue from "https://niivue.github.io/niivue/dist/index.js";
+
+      var nv1 = new niivue.Niivue();
+      nv1.attachTo('gl1');
+
+    </script>
+
+    <script type="text/javascript">
+
+      function dropHandler(e) {
+        
+        e.preventDefault();
+
+        var de = new DragEvent(e.type, e);
+
+        document.getElementById('gl1').dispatchEvent(de);
+
+        document.getElementById('overlay').style.display = 'None';
+
+      };
+
+      function dragOverHandler(e) {
+
+        e.preventDefault();
+
+        document.getElementById('overlay').style.backgroundColor = 'darkgray';
+
+      };
+
+    </script>
+  </head>
+  <body>
+    <div id='overlay' style='height:100%;width:100%;position:absolute;top:0px;left:0px;z-index:1000;background-color: white;text-align: center;padding-top:10%;font-family:sans-serif;' ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">Drop it like its hot!</div>
+
+    <canvas id='gl1' style='height:100%;width:100%'></canvas>
+  </body>
+</html>
