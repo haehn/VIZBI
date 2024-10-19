@@ -10,15 +10,14 @@
         overflow: hidden !important;  
       }
     </style>
-    <script type="text/javascript" src="https://niivue.github.io/niivue/features/niivue.umd.js"></script>
-    <script type="text/javascript">
-      window.onload = function() {
 
-        var nv1 = new niivue.Niivue()
-        nv1.attachTo('gl1')
-        nv1.setSliceType(nv1.sliceTypeRender)
+    <script type="module" async>
 
-      };
+      import * as niivue from "https://niivue.github.io/niivue/dist/index.js";
+
+      var nv1 = new niivue.Niivue();
+      nv1.attachTo('gl1');
+
     </script>
   </head>
   <body>
